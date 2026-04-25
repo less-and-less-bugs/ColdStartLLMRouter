@@ -1,0 +1,37 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build and packaging outputs
+build/
+dist/
+*.egg-info/
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local editor and OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Generated data and model artifacts
+data/
+outputs/
+checkpoints/
+*.ckpt
+*.pt
+*.pth

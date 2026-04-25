@@ -1,0 +1,65 @@
+routing:
+  # Query type hierarchy settings
+  type_hierarchy:
+    math_root:
+      description: "Mathematical problems"
+      children: ["math_simple", "math_complex"]
+      attributes:
+        domain: "math"
+        
+    math_simple:
+      description: "Basic mathematical operations"
+      parent: "math_root"
+      attributes:
+        complexity: "SIMPLE"
+        tools: ["math"]
+        
+    math_complex:
+      description: "Complex mathematical reasoning"
+      parent: "math_root"
+      attributes:
+        complexity: "COMPLEX"
+        tools: ["math", "reasoning"]
+        
+    code_root:
+      description: "Programming and coding tasks"
+      children: ["code_generation", "code_analysis"]
+      attributes:
+        domain: "coding"
+        
+    code_generation:
+      description: "Code generation tasks"
+      parent: "code_root"
+      attributes:
+        complexity: "MEDIUM"
+        tools: ["code"]
+        
+    code_analysis:
+      description: "Code review and analysis"
+      parent: "code_root"
+      attributes:
+        complexity: "COMPLEX"
+        tools: ["code", "analysis"]
+        
+  # Performance thresholds
+  thresholds:
+    min_confidence: 0.7
+    min_samples: 10
+    update_threshold: 0.3
+    
+  # Default constraints
+  default_constraints:
+    Lmax: 2.0  # Maximum latency in seconds
+    Pmin: 0.8  # Minimum success rate
+    Cmax: 0.1  # Maximum cost in dollars
+    
+  # Embedding model settings
+  embedding:
+    model: "all-MiniLM-L6-v2"
+    cache_size: 1000
+    
+  # Monitoring settings
+  monitoring:
+    log_level: "INFO"
+    metrics_window: 100  # Number of queries to keep for monitoring
+    update_interval: 3600  # Seconds between knowledge updates 

@@ -1,0 +1,50 @@
+tools:
+  code:
+    description: "Code generation and analysis tools"
+    capabilities:
+      - code_completion
+      - code_review
+      - debugging
+    requirements:
+      - code_generation
+    avg_latency: 0.5
+    
+  math:
+    description: "Mathematical problem solving tools"
+    capabilities:
+      - equation_solving
+      - numerical_computation
+      - symbolic_math
+    requirements:
+      - math_problem_solving
+    avg_latency: 0.3
+    
+  analysis:
+    description: "Data analysis and visualization tools"
+    capabilities:
+      - data_processing
+      - statistical_analysis
+      - visualization
+    requirements:
+      - data_analysis
+    avg_latency: 0.7
+    
+  reasoning:
+    description: "Complex reasoning and logic tools"
+    capabilities:
+      - logical_inference
+      - causal_reasoning
+      - argument_analysis
+    requirements:
+      - complex_reasoning
+    avg_latency: 0.4
+    
+  creative:
+    description: "Creative content generation tools"
+    capabilities:
+      - text_generation
+      - story_writing
+      - content_ideation
+    requirements:
+      - creative_writing
+    avg_latency: 0.6 

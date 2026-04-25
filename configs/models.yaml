@@ -1,0 +1,442 @@
+providers:
+  # 阿里云通义千问配置
+  alipay:
+    enabled: true
+    api:
+      key: null
+      base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    models:
+      default: "qwen3-32b"
+      available:
+        # 235B模型
+        qwen3-235b-a22b:
+          description: "A large-scale model (235 billion parameters) designed for complex reasoning and generation tasks. Its extensive parameter count enables superior performance in challenging scenarios requiring deep understanding and sophisticated outputs. Cost per million tokens: ¥2.0 for input and ¥8.0 for output, suitable for high-value applications requiring premium performance."
+          parameters:
+            temperature: 0.7
+            enable_thinking: false
+            stream: false
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 2.0
+            output_price: 8.0
+
+        qwen3-235b-a22b-thinking:
+          description: "The thinking mode variant of the 235B model, optimized for tasks requiring careful deliberation and step-by-step reasoning. Features enhanced context processing with dedicated thinking budget. Cost per million tokens: ¥2.0 for input and ¥20.0 for output, reflecting its advanced reasoning capabilities."
+          parameters:
+            temperature: 0.7
+            enable_thinking: true
+            thinking_budget: 38912
+            stream: true
+          max_context_window: 131072
+          max_input_length: 98304
+          max_output_length: 16384
+          pricing:
+            input_price: 2.0
+            output_price: 20.0
+
+        # 32B模型
+        qwen3-32b:
+          description: "A powerful medium-scale model (32 billion parameters) balancing performance and efficiency. Suitable for a wide range of applications requiring strong language understanding and generation capabilities. Cost per million tokens: ¥2.0 for input and ¥8.0 for output, offering enterprise-grade performance at a moderate price point."
+          parameters:
+            temperature: 0.7
+            enable_thinking: false
+            stream: false
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 2.0
+            output_price: 8.0
+
+        qwen3-32b-thinking:
+          description: "The thinking mode version of the 32B model, designed for complex problem-solving with methodical reasoning. Includes additional context processing for improved accuracy. Cost per million tokens: ¥2.0 for input and ¥20.0 for output, ideal for tasks requiring enhanced reasoning."
+          parameters:
+            temperature: 0.7
+            enable_thinking: true
+            thinking_budget: 38912
+            stream: true
+          max_context_window: 131072
+          max_input_length: 98304
+          max_output_length: 16384
+          pricing:
+            input_price: 2.0
+            output_price: 20.0
+
+        # 30B模型
+        qwen3-30b-a3b:
+          description: "A versatile model (30 billion parameters) offering robust performance across various tasks. Features optimized pricing for cost-effective deployment in production environments. Cost per million tokens: ¥0.75 for input and ¥3.0 for output, making it an economical choice for large-scale deployments."
+          parameters:
+            temperature: 0.7
+            enable_thinking: false
+            stream: false
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 0.75
+            output_price: 3.0
+
+        qwen3-30b-a3b-thinking:
+          description: "Enhanced version of the 30B model with thinking capabilities, ideal for applications requiring detailed analysis and structured reasoning approaches. Cost per million tokens: ¥0.75 for input and ¥7.5 for output, providing advanced features at an accessible price point."
+          parameters:
+            temperature: 0.7
+            enable_thinking: true
+            thinking_budget: 38912
+            stream: true
+          max_context_window: 131072
+          max_input_length: 98304
+          max_output_length: 16384
+          pricing:
+            input_price: 0.75
+            output_price: 7.5
+
+        # 14B模型
+        qwen3-14b:
+          description: "A balanced model (14 billion parameters) providing good performance for general language tasks. Offers an excellent compromise between capability and resource efficiency. Cost per million tokens: ¥1.0 for input and ¥4.0 for output, suitable for production deployments requiring reliable performance."
+          parameters:
+            temperature: 0.7
+            enable_thinking: false
+            stream: false
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 8192
+          pricing:
+            input_price: 1.0
+            output_price: 4.0
+
+        qwen3-14b-thinking:
+          description: "The thinking-enabled 14B model, optimized for tasks requiring careful consideration and systematic problem-solving approaches. Cost per million tokens: ¥1.0 for input and ¥10.0 for output, ideal for applications needing enhanced reasoning at a moderate cost."
+          parameters:
+            temperature: 0.7
+            enable_thinking: true
+            thinking_budget: 38912
+            stream: true
+          max_context_window: 131072
+          max_input_length: 98304
+          max_output_length: 8192
+          pricing:
+            input_price: 1.0
+            output_price: 10.0
+              # 14B模型
+        qwen3-8b:
+          description: "An efficient model (8 billion parameters) suitable for general-purpose language tasks. Provides quick responses while maintaining good accuracy, ideal for applications with moderate complexity. Cost per million tokens: ¥0.5 for input and ¥2.0 for output, making it a cost-effective choice for everyday applications."
+          parameters:
+            temperature: 0.7
+            enable_thinking: false
+            stream: false
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 8192
+          pricing:
+            input_price: 0.5
+            output_price: 2.0
+
+        qwen3-8b-thinking:
+          description: "The thinking variant of the 8B model, enhanced with deliberative capabilities for more thorough analysis and structured reasoning. Cost per million tokens: ¥0.5 for input and ¥5.0 for output, offering advanced features in an economical package."
+          parameters:
+            temperature: 0.7
+            enable_thinking: true
+            thinking_budget: 38912
+            stream: true
+          max_context_window: 131072
+          max_input_length: 98304
+          max_output_length: 8192
+          pricing:
+            input_price: 0.5
+            output_price: 5.0
+
+        # 1.7B模型
+        qwen3-1.7b:
+          description: "A lightweight model (1.7 billion parameters) designed for basic language tasks. Its small size enables fast inference and low resource consumption, suitable for simple applications requiring quick responses. Cost per million tokens: ¥0.3 for input and ¥1.2 for output, perfect for high-volume, basic language processing needs."
+          parameters:
+            temperature: 0.7
+            enable_thinking: false
+            stream: false
+          max_context_window: 32768
+          max_input_length: 30720
+          max_output_length: 8192
+          pricing:
+            input_price: 0.3
+            output_price: 1.2
+
+        qwen3-1.7b-thinking:
+          description: "The thinking-enabled version of the 1.7B model, adding systematic reasoning capabilities while maintaining efficiency for basic tasks. Cost per million tokens: ¥0.3 for input and ¥3.0 for output, providing enhanced features at an entry-level price point."
+          parameters:
+            temperature: 0.7
+            enable_thinking: true
+            thinking_budget: 30720  # 与输入相加不超过30720
+            stream: true
+          max_context_window: 32768
+          max_input_length: 28672
+          max_output_length: 8192
+          pricing:
+            input_price: 0.3
+            output_price: 3.0
+
+        # 0.6B模型
+        qwen3-0.6b:
+          description: "A highly efficient small-scale model (0.6 billion parameters) optimized for basic language tasks. Its minimal resource requirements make it ideal for applications needing fast, lightweight language processing. Cost per million tokens: ¥0.3 for input and ¥1.2 for output, making it the most economical choice for simple tasks."
+          parameters:
+            temperature: 0.7
+            enable_thinking: false
+            stream: false
+          max_context_window: 32768
+          max_input_length: 30720
+          max_output_length: 8192
+          pricing:
+            input_price: 0.3
+            output_price: 1.2
+
+        qwen3-0.6b-thinking:
+          description: "The thinking mode variant of the 0.6B model, providing structured reasoning capabilities in a compact form factor. Suitable for simple analytical tasks with minimal resource overhead. Cost per million tokens: ¥0.3 for input and ¥3.0 for output, offering basic reasoning capabilities at the lowest price point."
+          parameters:
+            temperature: 0.7
+            enable_thinking: true
+            thinking_budget: 30720  # 与输入相加不超过30720
+            stream: true
+          max_context_window: 32768
+          max_input_length: 28672
+          max_output_length: 8192
+          pricing:
+            input_price: 0.3
+            output_price: 3.0
+        
+        gemini-2.5-flash:
+          description: "A cutting-edge large language model designed for high-performance applications requiring extended context and advanced reasoning. With a maximum context window of 131,072 tokens, it excels in processing long documents and complex tasks. Cost per million tokens: ¥2.14 for input and ¥17.86 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 2.14 
+            output_price: 17.86
+
+        gemini-2.5-flash-lite:
+          description: "A more economical variant of the Gemini 2.5 series, offering similar long-context capabilities at reduced cost. Suitable for tasks demanding both context length and cost-efficiency. Cost per million tokens: ¥0.71 for input and ¥2.86 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 98304
+          max_output_length: 16384
+          pricing:
+            input_price: 0.71 
+            output_price: 2.86
+
+        # 32B模型
+        gemini-2.0-flash:
+          description: "A powerful 32B model optimized for balanced performance and efficiency. Supports long-context processing with strong language understanding, making it ideal for enterprise-level tasks. Cost per million tokens: ¥0.71 for input and ¥2.86 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 0.71
+            output_price: 2.86
+
+        gemini-2.0-flash-lite-preview-02-05:
+          description: "A preview version of the Gemini 2.0 Lite model, combining extended input capacity with enhanced speed and affordability. Ideal for testing or deploying cost-sensitive applications. Cost per million tokens: ¥0.54 for input and ¥2.14 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 98304
+          max_output_length: 16384
+          pricing:
+            input_price: 0.54
+            output_price: 2.14
+
+        # 30B模型
+        doubao-seed-1.6-flash:
+          description:  "A fast and efficient model from the Doubao Seed series, optimized for general-purpose language tasks with a generous context window. Well-suited for applications requiring low-latency response at minimal cost. Cost per million tokens: ¥0.15 for input and ¥1.5 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 0.15
+            output_price: 1.5
+      
+        ERNIE-Speed-128K:
+          description: "A versatile model (30 billion parameters) offering robust performance across various tasks. Features optimized pricing for cost-effective deployment in production environments. Cost per million tokens: ¥0.75 for input and ¥3.0 for output, making it an economical choice for large-scale deployments."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 0
+            output_price: 0
+        gpt-5:
+          description: "OpenAI GPT-5 flagship model. Cost per million tokens: ¥9.0 for input and ¥72.0 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 9.0
+            output_price: 72.0
+
+        gpt-5-mini:
+          description: "OpenAI GPT-5 Mini, balanced performance and cost. Cost per million tokens: ¥1.8 for input and ¥14.4 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 1.8
+            output_price: 14.4
+
+        gpt-5-nano:
+          description: "OpenAI GPT-5 Nano, lightweight and cost-effective. Cost per million tokens: ¥0.36 for input and ¥2.88 for output."
+          parameters:
+            temperature: 0.7
+          max_context_window: 131072
+          max_input_length: 129024
+          max_output_length: 16384
+          pricing:
+            input_price: 0.36
+            output_price: 2.88
+
+
+
+
+# OpenAI配置
+  openai:
+    enabled: false
+    api:
+      key: null
+      base_url: "https://api.zhizengzeng.com/"
+    models:
+      default: "gpt-4.1-2025-04-14"
+      available:
+        gpt-4.1-2025-04-14:
+        description: "最强大的GPT-4模型"
+        max_tokens: 8000
+        parameters:
+          temperature: 0.7
+        gpt-3.5-turbo:
+            description: "GPT-3.5 Turbo模型"
+            max_tokens: 4000
+            parameters:
+              temperature: 0.7
+judge_provider:
+  base_url: "https://api.zhizengzeng.com/"
+  api_key: null
+
+openrouter:
+  enabled: true
+  api:
+    key: null
+    base_url: "https://api.zhizengzeng.com/"
+  models:
+    default: "gpt-4.1-2025-04-14"
+    available:
+      # GPT-5 series (OpenAI via OpenRouter, RMB pricing, ~7.2 rate)
+      gpt-5:
+        description: "OpenAI GPT-5 flagship model. Cost per million tokens: ¥9.0 for input and ¥72.0 for output."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 129024
+        max_output_length: 16384
+        pricing:
+          input_price: 9.0
+          output_price: 72.0
+
+      gpt-5-mini:
+        description: "OpenAI GPT-5 Mini, balanced performance and cost. Cost per million tokens: ¥1.8 for input and ¥14.4 for output."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 129024
+        max_output_length: 16384
+        pricing:
+          input_price: 1.8
+          output_price: 14.4
+
+      gpt-5-nano:
+        description: "OpenAI GPT-5 Nano, lightweight and cost-effective. Cost per million tokens: ¥0.36 for input and ¥2.88 for output."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 129024
+        max_output_length: 16384
+        pricing:
+          input_price: 0.36
+          output_price: 2.88
+
+      # 235B模型
+      gemini-2.5-flash:
+        description: "A large-scale model (235 billion parameters) designed for complex reasoning and generation tasks. Its extensive parameter count enables superior performance in challenging scenarios requiring deep understanding and sophisticated outputs. Cost per million tokens: ¥2.0 for input and ¥8.0 for output, suitable for high-value applications requiring premium performance."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 129024
+        max_output_length: 16384
+        pricing:
+          input_price: 0.3 
+          output_price: 2.5
+
+      gemini-2.5-flash-lite:
+        description: "The thinking mode variant of the 235B model, optimized for tasks requiring careful deliberation and step-by-step reasoning. Features enhanced context processing with dedicated thinking budget. Cost per million tokens: ¥2.0 for input and ¥20.0 for output, reflecting its advanced reasoning capabilities."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 98304
+        max_output_length: 16384
+        pricing:
+          input_price: 0.1
+          output_price: 0.4
+
+      # 32B模型
+      gemini-2.0-flash:
+        description: "A powerful medium-scale model (32 billion parameters) balancing performance and efficiency. Suitable for a wide range of applications requiring strong language understanding and generation capabilities. Cost per million tokens: ¥2.0 for input and ¥8.0 for output, offering enterprise-grade performance at a moderate price point."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 129024
+        max_output_length: 16384
+        pricing:
+          input_price: 0.1
+          output_price: 0.4
+
+      gemini-2.0-flash-lite-preview-02-05:
+        description: "The thinking mode version of the 32B model, designed for complex problem-solving with methodical reasoning. Includes additional context processing for improved accuracy. Cost per million tokens: ¥2.0 for input and ¥20.0 for output, ideal for tasks requiring enhanced reasoning."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 98304
+        max_output_length: 16384
+        pricing:
+          input_price: 0.075
+          output_price: 0.3
+
+      # 30B模型
+      doubao-seed-1.6-flash:
+        description: "A versatile model (30 billion parameters) offering robust performance across various tasks. Features optimized pricing for cost-effective deployment in production environments. Cost per million tokens: ¥0.75 for input and ¥3.0 for output, making it an economical choice for large-scale deployments."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 129024
+        max_output_length: 16384
+        pricing:
+          input_price: 0.15
+          output_price: 0.60
+      
+      ERNIE-Speed-128K:
+        description: "A versatile model (30 billion parameters) offering robust performance across various tasks. Features optimized pricing for cost-effective deployment in production environments. Cost per million tokens: ¥0.75 for input and ¥3.0 for output, making it an economical choice for large-scale deployments."
+        parameters:
+          temperature: 0.7
+        max_context_window: 131072
+        max_input_length: 129024
+        max_output_length: 16384
+        pricing:
+          input_price: 0.15
+          output_price: 0.60
+
